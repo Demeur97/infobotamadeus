@@ -1,1 +1,0 @@
-https://amadeus-info.herokuapp.com/

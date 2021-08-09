@@ -1,2 +1,1 @@
-time>=21.2.3
 pyTelegramBotAPI>=3.8.1

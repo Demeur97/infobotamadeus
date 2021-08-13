@@ -12,8 +12,8 @@ bot = telebot.TeleBot(config.TOKEN)
 def start(message):
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard = True)
     item1 = types.KeyboardButton('❗Инфо❗')
-    item2 = types.KeyboardButton('⚔Рейд⚔')
-    item3 = types.KeyboardButton('⚔События⚔')
+    item2 = types.KeyboardButton('Рейд')
+    item3 = types.KeyboardButton('События')
     item4 = types.KeyboardButton('⚔Клановая война⚔')
     dalee = types.KeyboardButton('➡ Далее')
  
@@ -38,8 +38,13 @@ def bot_message(message):
                 markup.add(item1, item2, item3, item4, item5, item6, back)
 
                 bot.send_message(message.chat.id, '⚔ Раздел находится в разработке', reply_markup = markup)
+
+# тык
+            elif message.text == 'тык':
+                gif = open ('Оформление/mp4.mp4', 'rb')
+                bot.send_animation(message.chat.id, gif, None, 'цап 🐈')
 # рейд
-            elif message.text == '⚔Рейд⚔':
+            elif message.text == 'Рейд':
                 markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
                 item1 = types.KeyboardButton('Клановый рейд')
                 item2 = types.KeyboardButton('Гоблинус')
@@ -50,7 +55,7 @@ def bot_message(message):
                 bot.send_message(message.chat.id, '⚔Рейд⚔', reply_markup = markup)
                 
 # события 
-            elif message.text == '⚔События⚔':
+            elif message.text == 'События':
                 markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard = True)
                 item1 = types.KeyboardButton('Все события')
                 item2 = types.KeyboardButton('Бальтазар')
@@ -168,8 +173,8 @@ def bot_message(message):
             elif message.text == '⬅️ Меню':
                 markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
                 item1 = types.KeyboardButton('❗Инфо❗')
-                item2 = types.KeyboardButton('⚔Рейд⚔')
-                item3 = types.KeyboardButton('⚔События⚔')
+                item2 = types.KeyboardButton('Рейд')
+                item3 = types.KeyboardButton('События')
                 item4 = types.KeyboardButton('⚔Клановая война⚔')
                 dalee = types.KeyboardButton('➡ Далее')
  
@@ -183,8 +188,8 @@ def bot_message(message):
             elif message.text == '⬅️ Назад':
                 markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
                 item1 = types.KeyboardButton('❗Инфо❗')
-                item2 = types.KeyboardButton('⚔Рейд⚔')
-                item3 = types.KeyboardButton('⚔События⚔')
+                item2 = types.KeyboardButton('Рейд')
+                item3 = types.KeyboardButton('События')
                 item4 = types.KeyboardButton('⚔Клановая война⚔')
                 dalee = types.KeyboardButton('➡ Далее')
  

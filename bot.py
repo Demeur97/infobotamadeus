@@ -2,14 +2,27 @@ import telebot
 import config
 from telebot import TeleBot, types
 import kz
+import random_photo
 import slovo
-
-
+import random
 bot = telebot.TeleBot(config.TOKEN)
+
+
+# все пользователи
+usidFile = open ("usid.txt", "r")
+usidUsers = set ()
+for line in usidFile:
+    usidUsers.add(line.strip())  
+usidFile.close()
 
 # меню start
 @bot.message_handler(commands=['start'])
 def start(message):
+    if not str(message.chat.id) in usidUsers:
+        usidFile = open("usid.txt", "a")
+        usidFile.write(str(message.chat.id) + '\n')
+        usidUsers.add(message.chat.id)
+    
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard = True)
     item1 = types.KeyboardButton('❗Инфо❗')
     item2 = types.KeyboardButton('Рейд')
@@ -20,7 +33,33 @@ def start(message):
     markup.add(item1, item2, item3,item4, dalee)
  
     bot.send_message(message.chat.id, 'Привет, {0.first_name}!'.format(message.from_user), reply_markup = markup)
- 
+
+# админское меню
+# Важная информация
+@bot.message_handler (commands = ['gate1'])
+def mess(message):
+    for user in usidUsers:
+        photo = random.choice (random_photo.random_photo)
+    bot.send_photo(user, photo, message.text[message.text.find(' '):])
+# двойные награды
+@bot.message_handler (commands = ['gate2'])
+def mess(message):
+    for user in usidUsers:
+        photo = open ('Награды2/2.jpg', 'rb')
+        bot.send_photo(user, photo, message.text[message.text.find(' '):])
+# Реклама
+@bot.message_handler (commands = ['gate3'])
+def mess(message):
+    for user in usidUsers:
+        photo = open ('random/1.jpg', 'rb')
+        bot.send_photo(user, photo, message.text[message.text.find(' '):])
+# Текст без картинки
+@bot.message_handler (commands = ['gate4'])
+def mess(message):
+    for user in usidUsers:
+        bot.send_message(user, message.text[message.text.find(' '):])
+
+
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
 # 1 страница расширенно
@@ -41,7 +80,9 @@ def bot_message(message):
 
 # тык
             elif message.text == 'тык':
-                gif = open ('Оформление/mp4.mp4', 'rb')
+                gif1 = open ('Оформление/mp4.mp4', 'rb')
+                random_tik = [gif1]
+                gif = random.choice (random_tik)
                 bot.send_animation(message.chat.id, gif, None, 'цап 🐈')
 # рейд
             elif message.text == 'Рейд':
@@ -250,5 +291,4 @@ def bot_message(message):
 
                 bot.send_message(message.chat.id, '⬅ Рейд', reply_markup = markup)
 
-
-bot.polling(none_stop = True)
+bot.polling(none_stop=True)

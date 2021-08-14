@@ -9,7 +9,7 @@ bot = telebot.TeleBot(config.TOKEN)
 
 
 # все пользователи
-usidFile = open ("https://github.com/Demeur97/infobotamadeus/edit/main/usid.txt", "r")
+usidFile = open ("usid.txt", "r")
 usidUsers = set ()
 for line in usidFile:
     usidUsers.add(line.strip())  
@@ -19,7 +19,7 @@ usidFile.close()
 @bot.message_handler(commands=['start'])
 def start(message):
     if not str(message.chat.id) in usidUsers:
-        usidFile = open("https://github.com/Demeur97/infobotamadeus/edit/main/usid.txt", "a")
+        usidFile = open("usid.txt", "a")
         usidFile.write(str(message.chat.id) + '\n')
         usidUsers.add(message.chat.id)
     

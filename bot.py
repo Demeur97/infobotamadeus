@@ -3,11 +3,11 @@ import config
 from telebot import TeleBot, types
 import kz
 import slovo
-import random
-import ran
-
 
 bot = telebot.TeleBot(config.TOKEN)
+
+
+
 
 # меню start
 @bot.message_handler(commands=['start'])
@@ -131,7 +131,7 @@ def bot_message(message):
         url_button3 = types.InlineKeyboardButton(text="Age of Magic WIKI(англ.)", url="ageofmagicgame.fandom.com/wiki/Age_of_Magic_Wiki")
         url_button4 = types.InlineKeyboardButton(text="Планировщик ClanWar", url="aomcw.com")
         keyboard.add(url_button1, url_button2, url_button3, url_button4)
-        photo = random.choice(ran.random_photo)
+        photo = open ('Ссылки/1.jpg', 'rb')
         bot.send_photo(message.chat.id, photo, "<strong>⚔Полезные ссылки:</strong>", parse_mode="html", reply_markup=keyboard)
 
  # Каналы в Telegram
@@ -142,7 +142,7 @@ def bot_message(message):
         url_button3 = types.InlineKeyboardButton(text="Отзывы о кланах", url="t.me/joinchat/S1VR7u0omDE_Kywu")
         url_button4 = types.InlineKeyboardButton(text="AomSOCIAL", url="t.me/aomSocial")
         keyboard.add(url_button1, url_button2, url_button3, url_button4)
-        photo = random.choice(ran.random_photo)
+        photo = open ('Ссылки/2.jpg', 'rb')
         bot.send_photo(message.chat.id, photo, "<strong>⚔Список каналов AoM в Telegram:</strong>", parse_mode="html", reply_markup=keyboard)
 # клановыезадания
 

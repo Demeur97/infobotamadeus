@@ -200,11 +200,23 @@ def bot_message(message):
 # рейд
     elif message.text == 'Клановый рейд':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard = True)
-        item1 = types.KeyboardButton('Схема 4 рейда')
-        item2 = types.KeyboardButton('Схема 5 рейда')
+        item1 = types.KeyboardButton('Схема 1 рейда')
+        item2 = types.KeyboardButton('Схема 2 рейда')
+        item3 = types.KeyboardButton('Схема 3 рейда')
+        item4 = types.KeyboardButton('Схема 4 рейда')
+        item5 = types.KeyboardButton('Схема 5 рейда')
         raid = types.KeyboardButton('⬅ Рейд')
-        markup.add(item1, item2, raid)
+        markup.add(item1, item2, item3, item4, item5, raid)
         bot.send_message(message.chat.id, 'Какая схема Вас интересует?', reply_markup = markup)
+    elif message.text == 'Схема 1 рейда':
+        photo = open ('raid/Клановый рейд/1.jpg', 'rb')
+        bot.send_photo(message.chat.id, photo, caption = 'Схема 1 рейда')
+    elif message.text == 'Схема 2 рейда':
+        photo = open ('raid/Клановый рейд/2.jpg', 'rb')
+        bot.send_photo(message.chat.id, photo, caption = 'Схема 2 рейда')
+    elif message.text == 'Схема 3 рейда':
+        photo = open ('raid/Клановый рейд/3.jpg', 'rb')
+        bot.send_photo(message.chat.id, photo, caption = 'Схема 3 рейда')
     elif message.text == 'Схема 4 рейда':
         photo = open ('raid/Клановый рейд/4.jpg', 'rb')
         bot.send_photo(message.chat.id, photo, caption = 'Схема 4 рейда')

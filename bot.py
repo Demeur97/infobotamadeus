@@ -11,8 +11,9 @@ bot = telebot.TeleBot(config.TOKEN)
 
 # меню start
 @bot.message_handler(commands=['start'])
-def start(message):     
-    bot.send_message(message.chat.id, 'Привет, {0.first_name}!\n\nДанный бот создан для хранения информации по Age of Magic.\nЧтобы начать пользоваться ботом напишите команду: <strong>Меню</strong>'.format(message.from_user), parse_mode="html")
+def start(message):
+    photo = open ('Ссылки/2.jpg', 'rb')
+    bot.send_photo(message.chat.id, photo, caption = 'Привет, {0.first_name}!\n\nДанный бот создан для хранения информации по Age of Magic.\nЧтобы начать пользоваться ботом напишите команду: <strong>Меню</strong>'.format(message.from_user), parse_mode="html")
 
 # 1 страница
 @bot.message_handler(content_types=['text'])

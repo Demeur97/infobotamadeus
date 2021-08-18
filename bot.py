@@ -253,5 +253,10 @@ def bot_message(message):
         markup.add(item1, item2, item3, back)
         
         bot.send_message(message.chat.id, '⬅ Рейд', reply_markup = markup)
+#амадеус
+    elif message.text == 'Амадеус':
+        bot.send_message(message.chat.id, '⚔Раздел находится в разработке')
+    elif message.text == 'Amadeus':
+        bot.send_message(message.chat.id, '⚔Раздел находится в разработке')
 
 bot.polling(none_stop=True)

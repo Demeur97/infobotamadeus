@@ -111,7 +111,7 @@ def bot_message(message):
         bot.send_photo(message.chat.id, photo, slovo.x2, parse_mode="html")
 
     elif message.text == '❗Инфо❗':
-        bot.send_message(message.chat.id, '⚔Раздел находится в разработке')
+        bot.send_message(message.chat.id, '⚔Если у Вас есть полезная информация, которую можно добавить в бот, то просьба обращаться на @Demeur97')
 
 #Полезные ссылки
     elif message.text == 'Полезные ссылки':

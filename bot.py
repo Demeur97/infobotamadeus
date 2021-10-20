@@ -25,7 +25,7 @@ def bot_message(message):
         item2 = types.KeyboardButton('События')
         item3 = types.KeyboardButton('Клановые задания')
         item4 = types.KeyboardButton('Полезные ссылки')
-        item5 = types.KeyboardButton('❗Информация и другие проекты❗')
+        item5 = types.KeyboardButton('❗Информация❗')
 
         markup.add(item1, item2, item3, item4, item5) 
         bot.send_message(message.chat.id, 'Выберите интересующий пункт меню:', reply_markup = markup)
@@ -82,7 +82,7 @@ def bot_message(message):
         bot.send_photo(message.chat.id, photo)
 
 #информация
-    elif message.text == '❗Информация и другие проекты❗':
+    elif message.text == '❗Информация❗':
         keyboard = types.InlineKeyboardMarkup(row_width=1)  
         url_button1 = types.InlineKeyboardButton(text="Бот по 6 рейду", url="https://t.me/aom6raid_bot")
         url_button2 = types.InlineKeyboardButton(text="Канал с видео по 6 рейду", url="https://t.me/aom6raid")
@@ -163,7 +163,7 @@ def bot_message(message):
         item2 = types.KeyboardButton('События')
         item3 = types.KeyboardButton('Клановые задания')
         item4 = types.KeyboardButton('Полезные ссылки')
-        item5 = types.KeyboardButton('❗Информация и другие проекты❗')
+        item5 = types.KeyboardButton('❗Информация❗')
         markup.add(item1, item2, item3, item4, item5)
         bot.send_message(message.chat.id, '⬅️ Меню', reply_markup = markup)
 

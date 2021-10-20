@@ -86,10 +86,9 @@ def bot_message(message):
         keyboard = types.InlineKeyboardMarkup(row_width=1)  
         url_button1 = types.InlineKeyboardButton(text="Бот по 6 рейду", url="https://t.me/aom6raid_bot")
         url_button2 = types.InlineKeyboardButton(text="Канал с видео по 6 рейду", url="https://t.me/aom6raid")
-        url_button3 = types.InlineKeyboardButton(text="Беседа для обсужд", url="https://t.me/aom6raidchat")
-        url_button4 = types.InlineKeyboardButton(text="Автор бота", url="https://t.me/demeur97")
+        url_button3 = types.InlineKeyboardButton(text="Автор бота", url="https://t.me/demeur97")
         photo = open ('Ссылки/2.jpg', 'rb')
-        keyboard.add(url_button1, url_button2, url_button3, url_button4)
+        keyboard.add(url_button1, url_button2, url_button3)
         bot.send_photo(message.chat.id, photo, '⚔Если у Вас есть полезная информация, которую можно добавить в бот, то просьба обращаться на @Demeur97', reply_markup=keyboard)
 
 #Полезные ссылки
